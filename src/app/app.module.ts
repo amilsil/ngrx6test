@@ -10,12 +10,13 @@ import { environment } from '../environments/environment';
 import { OrgEffects } from './orgs/org.effects';
 import { OrgService } from './orgs/org.service';
 import { orgReducer } from './orgs/orgs.reducer';
+import { reducers } from './orgs/org.selectors';
 
 @NgModule({
     declarations: [AppComponent],
     imports: [
         BrowserModule,
-        StoreModule.forRoot({ count: counterReducer, orgs: orgReducer }),
+        StoreModule.forRoot(reducers),
         EffectsModule.forRoot([OrgEffects]),
         StoreDevtoolsModule.instrument({
             maxAge: 25, // Retains last 25 states
